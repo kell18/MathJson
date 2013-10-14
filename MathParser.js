@@ -133,6 +133,7 @@ var MathExpression = function(_mathLine) {
 			console.log(e.stack);
 			alert(e.message);
 		}
-};
+	};
+}
 
 
