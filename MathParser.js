@@ -112,24 +112,27 @@ var MathExpression = function(_mathLine) {
 
 
 	var __construct__ = function() {
+		try {
+			if(!_mathLine)
+				throw new Error("Incorrect expression: "+_mathLine);
+			if(_mathLine.search("[^0-9a-zA-Z()+\\-*/%^| ]") !== -1)
+				throw new Error("Incorrect expression: "+_mathLine);
 
-		if(!_mathLine)
-			return null;
-		//console.log(_mathLine);
-		varMLine  = _mathLine.replace(/\s+/g, '');
+			console.log(_mathLine);
+			varMLine  = _mathLine.replace(/\s+/g, '');
 
-		var i = 0;
-		for(key in execOrder) {
-			exprArr[i] = getExprArray(execOrder[key].regexp, i);
-			i++;
+			var i = 0;
+			for(key in execOrder) {
+				exprArr[i] = getExprArray(execOrder[key].regexp, i);
+				i++;
+			}
+			buildOperations(varMLine, exprObj);
+			console.log(JSON.stringify(exprObj, null, 4));
 		}
-
-		buildOperations(varMLine, exprObj);
-
-		console.log(JSON.stringify(exprObj, null, 4));
-
-		return exprObj;
-	}();
+		catch(e) {
+			console.log(e.stack);
+			alert(e.message);
+		}
 };
 
 
