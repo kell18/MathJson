@@ -1,54 +1,40 @@
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Test some stuff</title>
-	<script type="text/javascript" src="testing.js"></script>
-	<script type="text/javascript" src="MathParser.js"></script>
-</head>
-<body>
-    <div id="wrap">
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Math line to JSON</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="copyright" content="Albert Bikeev" />
+    <meta name="author" content="Albert Bikeev" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" />
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="MathParser.js"></script>
+    <script type="text/javascript" src="testing.js"></script>
+  </head>
+
+  <body>
+
+    <div class="container">
         <div class="row-fluid">
             <div class="span12">
-                <form>
-                    <fieldset>
-                        <legend>Название формы</legend>
-                        <label>Описание поля</label>
-                        <input type="text" placeholder="Введите текст…">
-                        <span class="help-block">Подсказка или доп. информация.</span>
-                        <label class="checkbox">
-                            <input type="checkbox"> Нажми здесь и выдели checkbox
-                        </label>
-                        <button type="submit" class="btn">Отправить</button>
-                    </fieldset>
-                </form>
+                <h1>Here you can parse you mathematical expression into JSON! </h1>
+                <fieldset>
+                    <legend></legend>
+                    <textarea id="math-string" style="width: 350px" rows="5" placeholder="input expression..."></textarea>
+                    <span class="help-block">For the time being work only [*/+-] operations</span>
+                    <button id="eval" class="btn btn-success btn-large">Get JSON!</button>
+                </fieldset>
+                <legend>JSON: </legend>
+                <fieldset>
+                    <p class="lead json"><strong id="json-block"></strong></p>
+                </fieldset>
             </div>
         </div>
-        <div class="container">
-            <div class="page-header">
-                <h1>Sticky footer</h1>
-            </div>
-            <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
-            <div class="view">
-                <form>
-                    <fieldset>
-                        <legend contenteditable="true">Legend</legend>
-                        <label contenteditable="true">Label name</label>
-                        <input type="text" placeholder="Type something…">
-                        <span class="help-block" contenteditable="true">Example block-level help text here.</span>
-                        <label class="checkbox">
-                            <input type="checkbox" contenteditable="true"> Check me out
-                        </label>
-                        <button type="submit" class="btn" contenteditable="true">Submit</button>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-        <div id="push"></div>
+        <div class="footer-buffer"></div>
     </div>
-    <div id="footer">
-        <div class="container">
-            <p class="muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
-        </div>
-    </div>
-</body>
+  </body>
 </html>
