@@ -2,7 +2,7 @@
 
 window.onload = function () {
 	
-	var butEval = document.getElementById("eval");
+	var butEval   = document.getElementById("eval");
 	var mathInp   = document.getElementById("math-string");
 	var JSONBlock = document.getElementById("json-block");
 
@@ -16,16 +16,16 @@ window.onload = function () {
 	
 	var get = location.search;
 	if(get !== ""){
-		var tmp1 = (get.substr(1)).split('&');	// разделяем переменные
-		var tmp2 = [];
-		var param = {};
-		for(var i=0; i < tmp1.length; i++) {
-			tmp2 = tmp1[i].split('=');		// массив param будет содержать
-			param[tmp2[0]] = tmp2[1];		// пары ключ(имя переменной)->значение
+		var vars   = (get.substr(1)).split('&');	
+		var keyVal = [];
+		var varObj = {};
+		for (var i=0; i < vars.length; i++) {
+			keyVal = vars[i].split('=');
+			varObj[keyVal[0]] = keyVal[1];
 		}
 		JSONBlock = document.getElementById("json-block");
-		mathInp.value = param.expression;
-		var ME = new MathExpression(param.expression);
+		mathInp.value = varObj.expression;
+		var ME = new MathExpression(varObj.expression);
 		if(!ME)
 			alert("Incorrect expression");
 		else
